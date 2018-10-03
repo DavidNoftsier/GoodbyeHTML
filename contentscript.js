@@ -11,10 +11,13 @@
 // for(var element in elements)
 // 	element.parentNode.removeChild(element);
 
-var elements = document.querySelectorAll('.flash.flash-full.js-notice.flash-error');
+chrome.storage.sync.get(['elementsToDestroy'], function (result) {
+	var elements = document.querySelectorAll(result.elementsToDestroy[0]);
+	
+	for(var i = 0; i < elements.length; i++)
+		elements[i].parentNode.removeChild(elements[0]);
+});
 
 // for(var element in elements)
 // 	element.parentNode.removeChild(element);
 
-for(var i = 0; i < elements.length; i++)
-	elements[i].parentNode.removeChild(elements[0]);

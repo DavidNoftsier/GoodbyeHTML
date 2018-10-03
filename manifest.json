@@ -15,5 +15,8 @@
 			"run_at": "document_idle"
 		}
 	],
+	"browser_action" :{
+		"default_popup": "blockElements.html"
+	},
 	"manifest_version": 2
 }
