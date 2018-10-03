@@ -7,7 +7,7 @@
         });
       });
 
-      function addAlement (element){
+      var addElement = function (element){
           chrome.storage.sync.get(['elementsToDestroy'], function (result) {
             // TODO Check that there are no duplicates
             var updatedElementsToDestroy = result.elementsToDestroy.push(element);
