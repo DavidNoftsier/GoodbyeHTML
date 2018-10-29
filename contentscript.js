@@ -18,6 +18,29 @@ chrome.storage.sync.get(['elementsToDestroy'], function (result) {
 		elements[i].parentNode.removeChild(elements[0]);
 });
 
+// chrome.runtime.onMessage.addListener(
+// 	function(request, sender, sendResponse){
+// 		console.log(sender.tab ? 'content-script: ' + sender.tab.url : 'from an extension');
+// 		if(request.greeting = 'Hello')
+// 			sendResponse({farewell: 'goodbye'});
+// 	})
+
+chrome.runtime.onMessage.addListener(
+	function(request, sender, sendResponse){
+	debugger;
+	switch(request.action){
+		case 'destroyElement': 
+			destroyElement(request.elementSelector);
+			break;
+	}
+
+});
+
+
+// cost destroyElements = () => {
+
+// }
+
 // for(var element in elements)
 // 	element.parentNode.removeChild(element);
 

@@ -4,12 +4,31 @@
   </head>
   <body>
     
-    <input type='text' id='element' placeholder='Block new element'>
-    <button id='block-element'>Block</button>
+    <section>
+      <input id='block-element-selector' class="full-width margin-small" type='text' placeholder='#block-this-element' >
+      <select id="action-selector" class="full-width margin-small" >
+        <option value="destroy">Destroy</option>
+        <option value="block">Block</option>
+        <option value="block-everywhere">Block Everywhere</option>
+      </select>
+      <button id='block-element' class="full-width margin-small">Block</button>
+    </section>
+
     <script src="blockElements.js"></script>
     
     <style>
-      body {width: 150px;}
+
+      body {
+        width: 150px;
+      }
+      .margin-small{
+        margin:10px;
+      }
+      .full-width{
+        display: block;
+        width:calc(100% - 20px);
+      }
+
     </style>
   
   </body>
