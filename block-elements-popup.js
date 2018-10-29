@@ -1,3 +1,10 @@
+initialize = () => {
+  // Perhaps this should be a persistable preference in the future
+  document.getElementById('action-description').innerText = 'Destroy this element only during this site visit';
+}
+
+initialize();
+
 const sendMessage = (action, data) => {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {action: action, data: data}, function(response) {});
@@ -45,10 +52,3 @@ document.getElementById('action-select').addEventListener('change',
         break;
     }
   });
-
-initialize = () => {
-  // Perhaps this should be a persistable preference in the future
-  document.getElementById('action-description').innerText = 'Destroy this element only during this site visit';
-}
-
-initialize();
