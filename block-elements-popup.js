@@ -28,9 +28,9 @@ const addElement = (elementSelector) => {
   });
 }
 
-document.getElementById('block-element').addEventListener('click', 
+document.getElementById('element-action').addEventListener('click', 
   () => {
-    document.getElementById('block-element')
+    document.getElementById('element-action')
     let elementSelector = document.getElementById('block-element-selector').value;
     sendMessage('destroyElements', elementSelector);
     // addElement(element);
@@ -42,13 +42,13 @@ document.getElementById('action-select').addEventListener('change',
     let action = document.getElementById('action-select').value;
     switch(action){
       case 'destroy':
-        document.getElementById('action-description').innerText = 'Destroy this element only during this site visit';
+        document.getElementById('action-description').innerText = 'Destroy element during this site visit only.';
         break;
       case 'block':
-        document.getElementById('action-description').innerText = 'Block this element every time you visit this site';
+        document.getElementById('action-description').innerText = 'Block element every time you visit this site.';
         break;
       case 'block-everywhere':
-        document.getElementById('action-description').innerText = 'Block this element everyt time you visit any site';
+        document.getElementById('action-description').innerText = 'Block element every time you visit any site.';
         break;
     }
   });
