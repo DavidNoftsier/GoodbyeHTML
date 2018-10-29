@@ -1,14 +1,3 @@
-// document.addEventListener('DOMContentLoaded', function() {
-//   debugger;
-//   document.getElementById('block-element').addEventListener('click', function(){
-//       debugger;
-
-//       let elementSelector = document.getElementById('block-element-selector').value;
-//       sendMessage("destroyElement", elementSelector);
-//       // addElement(element);
-//     });
-// });
-
 const sendMessage = (action, data) => {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {action: action, data: data}, function(response) {});
@@ -31,8 +20,6 @@ const addElement = (elementSelector) => {
       chrome.storage.sync.set({elementsToDestroy: updatedElementsToDestroy}, function (){});
     });
 }
-
- // document.getElementById('block-element').addEventListener('click', function(){debugger;alert("why");});
 
 document.getElementById('block-element').addEventListener('click', function(){
     debugger;
