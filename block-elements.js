@@ -22,13 +22,13 @@ chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse){
 	debugger;
 	switch(request.action){
-		case 'destroyElement': 
-			destroyElement(request.data);
+		case 'destroyElements': 
+			destroyElements(request.data);
 			break;
 	}
 });
 
-const destroyElement = (elementSelector) => {
+const destroyElements = (elementSelector) => {
   debugger;
   var elements = document.querySelectorAll(elementSelector);
   for(var i = 0; i < elements.length; i++)

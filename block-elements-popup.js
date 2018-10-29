@@ -38,6 +38,6 @@ document.getElementById('block-element').addEventListener('click', function(){
     debugger;
 
     let elementSelector = document.getElementById('block-element-selector').value;
-    sendMessage("destroyElement", elementSelector);
+    sendMessage("destroyElements", elementSelector);
     // addElement(element);
   });
