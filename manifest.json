@@ -10,9 +10,7 @@
 		,"activeTab"
 		],
 	"background": {
-		"scripts": ["background.js"
-			,"block-elements-popup.js"
-		],
+		"scripts": ["background.js"],
 		"persistent": false
 	},
 	"content_scripts": [
