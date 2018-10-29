@@ -1,6 +1,6 @@
-chrome.storage.sync.get(['elementsToDestroy'], function (result) {
-	var elements = document.querySelectorAll(result.elementsToDestroy[0]);
-	
+chrome.storage.sync.get(['elementsToBlockEverywhere'], function (result) {
+	var elements = document.querySelectorAll(result.elementsToBlockEverywhere[0]);
+	debugger;
 	for(var i = 0; i < elements.length; i++)
 		elements[i].parentNode.removeChild(elements[0]);
 });

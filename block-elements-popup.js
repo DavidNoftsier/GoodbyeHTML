@@ -18,24 +18,38 @@ const sendMessage = (action, data) => {
 //     elements[i].parentNode.removeChild(elements[0]);
 // });
 
-const addElement = (elementSelector) => {
-  chrome.storage.sync.get(['elementsToDestroy'], function (result) {
-    // TODO Check that there are no duplicates
-    result.elementsToDestroy.push(elementSelector);
-    let updatedElementsToDestroy = result.elementsToDestroy;
-    // TODO Try and find a better way than replacing the entire object each time
-    chrome.storage.sync.set({elementsToDestroy: updatedElementsToDestroy}, function (){});
+const blockElementEverywhere = (elementSelector) => {
+  chrome.storage.sync.get(['elementsToBlockEverywhere'], function (result) {
+    debugger;
+    // Return if new element is a duplicate
+    for(let i = 0; i < result.elementsToBlockEverywhere.length; i++)
+      if(result.elementsToBlockEverywhere[i] === elementSelector)
+        return;
+    debugger;
+    result.elementsToBlockEverywhere.push(elementSelector);
+    let updatedElementsToBlockEverywhere = result.elementsToBlockEverywhere;
+    chrome.storage.sync.set({elementsToBlockEverywhere: updatedElementsToBlockEverywhere}, function (){});
   });
 }
 
 document.getElementById('element-action').addEventListener('click', 
   () => {
-    document.getElementById('element-action')
+    debugger;
     let elementSelector = document.getElementById('block-element-selector').value;
+    let action = document.getElementById('action-select').value;
+    switch(action){
+      case 'destroy':
+        break;
+      case 'block':
+        break;
+      case 'block-everywhere':
+        blockElementEverywhere(elementSelector); 
+        break;
+    }
     sendMessage('destroyElements', elementSelector);
-    // addElement(element);
   });
 
+// Description of each action driven by the action selection dropdown 
 document.getElementById('action-select').addEventListener('change', 
   () => {
     debugger;
