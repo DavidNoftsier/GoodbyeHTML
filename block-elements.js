@@ -1,8 +1,10 @@
 chrome.storage.sync.get(['elementsToBlockEverywhere'], function (result) {
-	var elements = document.querySelectorAll(result.elementsToBlockEverywhere[0]);
-	debugger;
-	for(var i = 0; i < elements.length; i++)
-		elements[i].parentNode.removeChild(elements[0]);
+	for(let i = 0; i< result.elementsToBlockEverywhere.length; i++){
+		let elements = document.querySelectorAll(result.elementsToBlockEverywhere[i]);
+		debugger;
+		for(let i = 0; i < elements.length; i++)
+			elements[i].parentNode.removeChild(elements[i]);
+	}
 });
 
 chrome.runtime.onMessage.addListener(
@@ -17,8 +19,8 @@ chrome.runtime.onMessage.addListener(
 
 const destroyElements = (elementSelector) => {
   debugger;
-  var elements = document.querySelectorAll(elementSelector);
-  for(var i = 0; i < elements.length; i++)
+  let elements = document.querySelectorAll(elementSelector);
+  for(let i = 0; i < elements.length; i++)
     elements[i].parentNode.removeChild(elements[0]);
 }
 
