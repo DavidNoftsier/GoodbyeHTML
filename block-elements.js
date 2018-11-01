@@ -25,8 +25,13 @@ const destroyElements = (elementSelector) => {
 handleMouseover = (event) => {
 	debugger;
 	let xpath = getElementXPath(event.target);
+	let thing = getElementFromXPath(xpath);
 }
 document.addEventListener('mouseover', handleMouseover);
+
+getElementFromXPath = (xpath) => {
+	return document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}
 
 // getPathTo
 // https://stackoverflow.com/questions/2631820/how-do-i-ensure-saved-click-coordinates-can-be-reloaed-to-the-same-place-even-i/2631931#2631931
