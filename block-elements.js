@@ -24,11 +24,23 @@ const destroyElements = (elementSelector) => {
 }
 
 handleMouseover = (event) => {
+    // event.stopPropagation();
 	debugger;
-	let xpath = getElementXPath(event.target);
-	let thing = getElementFromXPath(xpath);
+    let element = event.target;
+    let tooltip = createTooltip(element);
+
+    element.prepend(tooltip);
+	//let xpath = getElementXPath(event.target);
 }
 document.addEventListener('mouseover', handleMouseover);
+
+handleMouseout = (event) => {
+    // event.stopPropagation();
+    debugger;
+    element = event.target;
+    element.removeChild(element.children[0]);
+}
+document.addEventListener('mouseout', handleMouseout);
 
 getElementFromXPath = (xpath) => {
 	return document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -52,8 +64,7 @@ createTooltip = (element) => {
     tooltip.style.cssText = styles;
 
     let clientRect = element.getBoundingClientRect();
-    let text = `element: ${element.localName} position (x: ${clientRect.x} y: ${clientRect.y}) 
-                height: ${clientRect.height} width: ${clientRect.width}`;
+    let text = `element: ${element.localName} position (x: ${clientRect.x} y: ${clientRect.y}) height: ${clientRect.height} width: ${clientRect.width}`;
     let textNode = document.createTextNode(text);
     tooltip.appendChild(textNode);
 
