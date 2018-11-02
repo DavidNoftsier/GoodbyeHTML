@@ -1,4 +1,5 @@
 
+// Gets array of elements that are blocked on every site from storage and destroys them  
 chrome.storage.sync.get(['elementsToBlockEverywhere'], function (result) {
 	for(let i = 0; i< result.elementsToBlockEverywhere.length; i++){
 		let elements = document.querySelectorAll(result.elementsToBlockEverywhere[i]);
