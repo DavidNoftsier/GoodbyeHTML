@@ -34,6 +34,34 @@ getElementFromXPath = (xpath) => {
 	return document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 }
 
+createTooltip = (element) => {
+    let tooltipWrapper = document.createElement('span');
+    tooltipWrapper.style.position = 'relative';
+
+    let tooltip = document.createElement('span');
+        // visibility: hidden; 
+    let styles = `
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;`;
+    tooltip.style.cssText = styles;
+
+    let clientRect = element.getBoundingClientRect();
+    let text = `element: ${element.localName} position (x: ${clientRect.x} y: ${clientRect.y}) 
+                height: ${clientRect.height} width: ${clientRect.width}`;
+    let textNode = document.createTextNode(text);
+    tooltip.appendChild(textNode);
+
+    tooltipWrapper.append(tooltip);
+
+    return tooltipWrapper;
+}
+
 // getPathTo
 // https://stackoverflow.com/questions/2631820/how-do-i-ensure-saved-click-coordinates-can-be-reloaed-to-the-same-place-even-i/2631931#2631931
 // Author: https://stackoverflow.com/users/18936/bobince
