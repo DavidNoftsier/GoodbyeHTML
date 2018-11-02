@@ -52,17 +52,7 @@ createTooltip = (element) => {
     tooltipWrapper.style.position = 'relative';
 
     let tooltip = document.createElement('span');
-        // visibility: hidden; 
-    let styles = `
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        padding: 5px 0;
-        border-radius: 6px;
-        position: absolute;
-        z-index: 1;`;
-    tooltip.style.cssText = styles;
+    tooltip.id = 'highlighted-element-tooltip';
 
     let clientRect = element.getBoundingClientRect();
     let text = `element: ${element.localName} position (x: ${clientRect.x} y: ${clientRect.y}) height: ${clientRect.height} width: ${clientRect.width}`;

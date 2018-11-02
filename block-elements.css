@@ -9,3 +9,14 @@ a.highlight-element{
 div.highlight-element{
 	border: solid green 2px;
 }
+
+#highlighted-element-tooltip{
+	width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+}
