@@ -1,0 +1,11 @@
+.highlight-element{
+	border: solid red 2px;
+}
+
+a.highlight-element{
+	border: solid blue 2px;
+}
+
+div.highlight-element{
+	border: solid green 2px;
+}

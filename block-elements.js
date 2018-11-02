@@ -25,8 +25,10 @@ const destroyElements = (elementSelector) => {
 
 handleMouseover = (event) => {
     let element = event.target;
-    let tooltip = createTooltip(element);
 
+    element.className += ' highlight-element';
+
+    let tooltip = createTooltip(element);
     element.prepend(tooltip);
 }
 document.addEventListener('mouseover', handleMouseover);
@@ -34,6 +36,9 @@ document.addEventListener('mouseover', handleMouseover);
 handleMouseout = (event) => {
     debugger;
     element = event.target;
+
+    element.className = element.className.replace(' highlight-element', '');
+
     element.removeChild(element.children[0]);
 }
 document.addEventListener('mouseout', handleMouseout);
