@@ -24,18 +24,14 @@ const destroyElements = (elementSelector) => {
 }
 
 handleMouseover = (event) => {
-    // event.stopPropagation();
-	debugger;
     let element = event.target;
     let tooltip = createTooltip(element);
 
     element.prepend(tooltip);
-	//let xpath = getElementXPath(event.target);
 }
 document.addEventListener('mouseover', handleMouseover);
 
 handleMouseout = (event) => {
-    // event.stopPropagation();
     debugger;
     element = event.target;
     element.removeChild(element.children[0]);
