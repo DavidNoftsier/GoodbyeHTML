@@ -17,6 +17,7 @@
 		{
 			"matches": ["<all_urls>"],
 			"js": ["block-elements.js"],
+			"css": ["block-elements.css"],
 			"run_at": "document_idle"
 		}
 	],
