@@ -17,10 +17,10 @@ chrome.runtime.onMessage.addListener(
 	}
 });
 
-const destroyElements = (elementSelector) => {
-  let elements = document.querySelectorAll(elementSelector);
-  for(let i = 0; i < elements.length; i++)
-    elements[i].parentNode.removeChild(elements[0]);
+const destroyElements = (elementSelector, elements) => {
+    let elementsToDestroy = elementSelector ? document.querySelectorAll(elementSelector) : elements;
+    for(let i = 0; i < elementsToDestroy.length; i++)
+        elementsToDestroy[i].parentNode.removeChild(elementsToDestroy[0]);
 }
 
 handleMouseover = (event) => {
@@ -41,6 +41,15 @@ handleMouseout = (event) => {
     element.removeChild(element.children[0]);
 }
 document.addEventListener('mouseout', handleMouseout);
+
+handleMouseclick = (event) => {
+    debugger;
+    event.stopPropagation();
+    let element = event.target;
+    // let xpath = getElementXPath(element);
+    destroyElements(null, [element]);
+}
+document.addEventListener('click', handleMouseclick);
 
 getElementFromXPath = (xpath) => {
 	return document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
