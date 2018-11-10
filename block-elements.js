@@ -36,7 +36,7 @@ document.addEventListener('mouseover', handleMouseover);
 handleMouseout = (event) => {
     let element = event.target;
 
-    element.className = element.className.replace(' highlight-element', '');
+    element.className = element.className.toString().replace(' highlight-element', '');
 
     element.removeChild(element.children[0]);
 }
