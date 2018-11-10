@@ -34,7 +34,7 @@ handleMouseover = (event) => {
 document.addEventListener('mouseover', handleMouseover);
 
 handleMouseout = (event) => {
-    element = event.target;
+    let element = event.target;
 
     element.className = element.className.replace(' highlight-element', '');
 
