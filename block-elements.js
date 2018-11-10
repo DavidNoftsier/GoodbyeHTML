@@ -10,10 +10,10 @@ chrome.storage.sync.get(['elementsToBlockEverywhere'], function (result) {
 
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse){
-	switch(request.action){
-		case 'destroyElements': 
-			destroyElements(request.data);
-			break;
+		switch(request.action){
+    		case 'destroyElements': 
+    			destroyElements(request.data);
+    			break;
 	}
 });
 
@@ -34,7 +34,6 @@ handleMouseover = (event) => {
 document.addEventListener('mouseover', handleMouseover);
 
 handleMouseout = (event) => {
-    debugger;
     element = event.target;
 
     element.className = element.className.replace(' highlight-element', '');

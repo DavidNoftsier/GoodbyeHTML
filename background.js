@@ -1,7 +1,6 @@
 let exampleElementSelectors = '.flash.flash-full.js-notice.flash-error';
 
 chrome.runtime.onInstalled.addListener(function() {
-	debugger;
 	chrome.storage.sync.get(['elementsToBlockEverywhere'], function (result) {
 	if(!result.elementsToBlockEverywhere.length)
 		chrome.storage.sync.set({elementsToBlockEverywhere: [exampleElementSelectors]}, function (){});

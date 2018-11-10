@@ -20,12 +20,10 @@ const sendMessage = (action, data) => {
 
 const blockElementEverywhere = (elementSelector) => {
   chrome.storage.sync.get(['elementsToBlockEverywhere'], function (result) {
-    debugger;
     // Return if new element is a duplicate
     for(let i = 0; i < result.elementsToBlockEverywhere.length; i++)
       if(result.elementsToBlockEverywhere[i] === elementSelector)
         return;
-    debugger;
     result.elementsToBlockEverywhere.push(elementSelector);
     let updatedElementsToBlockEverywhere = result.elementsToBlockEverywhere;
     chrome.storage.sync.set({elementsToBlockEverywhere: updatedElementsToBlockEverywhere}, function (){});
@@ -34,7 +32,6 @@ const blockElementEverywhere = (elementSelector) => {
 
 document.getElementById('element-action').addEventListener('click', 
   () => {
-    debugger;
     let elementSelector = document.getElementById('block-element-selector').value;
     let action = document.getElementById('action-select').value;
     switch(action){
@@ -46,13 +43,13 @@ document.getElementById('element-action').addEventListener('click',
         blockElementEverywhere(elementSelector); 
         break;
     }
+    
     sendMessage('destroyElements', elementSelector);
   });
 
 // Description of each action driven by the action selection dropdown 
 document.getElementById('action-select').addEventListener('change', 
   () => {
-    debugger;
     let action = document.getElementById('action-select').value;
     switch(action){
       case 'destroy':
