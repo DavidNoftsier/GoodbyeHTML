@@ -57,7 +57,7 @@ getElementFromXPath = (xpath) => {
 
 createTooltip = (element) => {
     let tooltipWrapper = document.createElement('span');
-    tooltipWrapper.style.position = 'relative';
+    tooltipWrapper.id = 'highlighted-element-tooltip-wrapper';
 
     let tooltip = document.createElement('span');
     tooltip.id = 'highlighted-element-tooltip';
