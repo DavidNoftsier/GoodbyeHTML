@@ -47,7 +47,12 @@ handleMouseclick = (event) => {
     event.stopPropagation();
     let element = event.target;
     // let xpath = getElementXPath(element);
-    destroyElements(null, [element]);
+    element.className += ' destroy-animation';
+
+    setTimeout(() => {
+        destroyElements(null, [element]);
+    }, 250);
+    
 }
 document.addEventListener('click', handleMouseclick);
 
